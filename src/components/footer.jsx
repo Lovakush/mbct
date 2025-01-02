@@ -8,7 +8,8 @@ const Footer = () => {
         <div className="flex justify-center space-x-8 py-4">
           <Link to="/contact" className="hover:text-orange-200 transition-colors">Contact Us</Link>
           <Link to="/about" className="hover:text-orange-200 transition-colors">About Us</Link>
-          <Link to="/privacy" className="hover:text-orange-200 transition-colors">Privacy Policy</Link>
+          <Link to="/policy" className="hover:text-orange-200 transition-colors">Trust Policy</Link>
+          <Link to="/member-policy" className="hover:text-orange-200 transition-colors">Member/Trustee Policy</Link>
           <Link to="/feedback" className="hover:text-orange-200 transition-colors">Feedback</Link>
         </div>
         <div className="text-center py-4 border-t border-orange-400">

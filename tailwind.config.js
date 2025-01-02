@@ -6,8 +6,19 @@ export default {
   ],
   theme: {
     extend: {
+      perspective: {
+        'normal': '1000px',
+      },
+      transform: {
+        'flip': 'rotateY(180deg)',
+      },
+      transformStyle: {
+        '3d': 'preserve-3d',
+      },
+      backfaceVisibility: {
+        'hidden': 'hidden',
+      }
     },
   },
   plugins: [],
 }
-

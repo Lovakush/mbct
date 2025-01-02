@@ -18,7 +18,7 @@ const HomePage = () => {
     },
     {
       name: "Suraj Singh",
-      position: "Secretary",
+      position: "General Secretary",
       image: Suraj
     },
     {
