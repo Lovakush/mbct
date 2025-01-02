@@ -1,20 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import khatushyamLogo from '../assets/Khatushyam.jpeg';
 import Bhagwati from '../assets/Bhadroli_devi.jpg';
+
 const Header = () => {
   return (
     <div className="flex flex-col w-full">
       {/* Main Header with Title and Logos */}
       <div className="bg-orange-500 text-white py-4 px-6">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          {/* Left Logo */}
           <img 
             src={Bhagwati}
             alt="MBCT Left Logo"
-            className="h-20 w-20 object-contain"
+            className="h-20 w-20 object-contain rounded-full shadow-lg"
           />
           
-          {/* Title Section */}
           <div className="text-center flex-1 mx-8">
             <h1 className="text-3xl font-bold mb-2">
               Maa Bhagwati Charitable Trust
@@ -24,16 +24,15 @@ const Header = () => {
             </h2>
           </div>
           
-          {/* Right Logo */}
           <img 
             src={khatushyamLogo}
             alt="MBCT Right Logo" 
-            className="h-20 w-20 object-contain"
+            className="h-20 w-20 object-contain rounded-full shadow-lg"
           />
         </div>
       </div>
       
-      {/* Decorative Triangle Pattern */}
+      {/* Decorative Pattern */}
       <div className="h-4 w-full bg-orange-500 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full">
           <svg className="w-full h-full" preserveAspectRatio="none">
@@ -46,24 +45,38 @@ const Header = () => {
       </div>
       
       {/* Navigation Bar */}
-      <nav className="bg-orange-500 text-white">
-        <div className="max-w-7xl mx-auto">
-          <ul className="flex">
-            <li className="border-r border-orange-400">
-              <a 
-                href="/" 
-                className="px-8 py-3 block hover:bg-orange-600 transition-colors duration-200"
+      <nav className="bg-orange-500 text-white py-4">
+        <div className="max-w-7xl mx-auto px-6">
+          <ul className="flex justify-center gap-6">
+            <li>
+              <Link 
+                to="/" 
+                className="inline-flex items-center px-6 py-3 bg-orange-600 hover:bg-orange-700 
+                rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 
+                transform hover:-translate-y-0.5 focus:ring-2 focus:ring-orange-400"
               >
-                Home
-              </a>
+                <span className="font-medium">Home</span>
+              </Link>
             </li>
-            <li className="border-r border-orange-400">
-              <a 
-                href="/donation" 
-                className="px-8 py-3 block hover:bg-orange-600 transition-colors duration-200"
+            <li>
+              <Link 
+                to="/donation" 
+                className="inline-flex items-center px-6 py-3 bg-orange-600 hover:bg-orange-700 
+                rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 
+                transform hover:-translate-y-0.5 focus:ring-2 focus:ring-orange-400"
               >
-                Donation
-              </a>
+                <span className="font-medium">Donation</span>
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/certificates" 
+                className="inline-flex items-center px-6 py-3 bg-orange-600 hover:bg-orange-700 
+                rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 
+                transform hover:-translate-y-0.5 focus:ring-2 focus:ring-orange-400"
+              >
+                <span className="font-medium">Certificate</span>
+              </Link>
             </li>
           </ul>
         </div>
