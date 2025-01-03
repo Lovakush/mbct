@@ -1,11 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import khatushyamLogo from '../assets/Khatushyam.jpeg';
-import Bhagwati from '../assets/Bhadroli_devi.jpg';
-import Lovakush from '../assets/Lovakush.png';
-import Suraj from '../assets/suraj.jpg';
-import Narendra from '../assets/narendra.jpg';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -14,17 +9,17 @@ const HomePage = () => {
     {
       name: "Narendra Kumar",
       position: "Chairman",
-      image: Narendra
+      image: '/assets/narendra.jpg'
     },
     {
       name: "Suraj Singh",
       position: "General Secretary",
-      image: Suraj
+      image: '/assets/suraj.jpg'
     },
     {
       name: "Lova Kush",
       position: "Treasurer",
-      image: Lovakush
+      image: '/assets/Lovakush.png'
     },
   ];
 
@@ -34,7 +29,7 @@ const HomePage = () => {
       <div className="relative w-full min-h-screen">
         <div className="absolute inset-0">
           <img
-            src={Bhagwati}
+            src= '/assets/Bhadroli_devi.jpg'
             alt="Khatu Shyam Temple"
             className="w-full h-full object-cover object-center"
             style={{
@@ -72,7 +67,7 @@ const HomePage = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="rounded-lg overflow-hidden shadow-lg h-full">
               <img
-                src={khatushyamLogo}
+                src= '/assets/Khatushyam.jpeg'
                 alt="Temple Project"
                 className="w-full h-full object-contain bg-white"
                 // style={{ aspectRatio: '4/4' }}

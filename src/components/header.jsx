@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import khatushyamLogo from '../assets/Khatushyam.jpeg';
-import Bhagwati from '../assets/Bhadroli_devi.jpg';
+
 
 const Header = () => {
   return (
@@ -10,7 +9,7 @@ const Header = () => {
       <div className="bg-orange-500 text-white py-4 px-4 sm:px-6">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <img 
-            src={Bhagwati}
+            src='/assets/Bhadroli_devi.jpg'
             alt="MBCT Left Logo"
             className="h-16 w-16 sm:h-20 sm:w-20 object-contain rounded-full shadow-lg"
           />
@@ -25,7 +24,7 @@ const Header = () => {
           </div>
           
           <img 
-            src={khatushyamLogo}
+            src='/assets/Khatushyam.jpeg'
             alt="MBCT Right Logo" 
             className="h-16 w-16 sm:h-20 sm:w-20 object-contain rounded-full shadow-lg"
           />

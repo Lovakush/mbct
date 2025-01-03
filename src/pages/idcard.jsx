@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { BadgeCheck } from 'lucide-react';
-import layaksingh from '../assets/trustee/layaksingh.jpg';
-import ajaypal from '../assets/trustee/ajaypal.jpg';
 
 const Barcode = ({ value }) => {
   const generateBarcodeData = (str) => {
@@ -37,7 +35,7 @@ const keyPersons = [
     gender: "Male",
     idNumber: "MBCT/AGR/KP/S/1001",
     verified: true,
-    photo: layaksingh,
+    photo: '/assets/trustee/layaksingh.jpg',
   }
 ];
 
@@ -49,7 +47,7 @@ const trustees = [
     gender: "Male",
     idNumber: "MBCT/AGR/TR/M/501",
     verified: true,
-    photo: ajaypal,
+    photo: '/assets/trustee/ajaypal.jpg',
   }
 ];
 
