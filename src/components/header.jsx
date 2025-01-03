@@ -5,21 +5,21 @@ import Bhagwati from '../assets/Bhadroli_devi.jpg';
 
 const Header = () => {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full overflow-x-hidden">
       {/* Main Header with Title and Logos */}
-      <div className="bg-orange-500 text-white py-4 px-6">
+      <div className="bg-orange-500 text-white py-4 px-4 sm:px-6">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <img 
             src={Bhagwati}
             alt="MBCT Left Logo"
-            className="h-20 w-20 object-contain rounded-full shadow-lg"
+            className="h-16 w-16 sm:h-20 sm:w-20 object-contain rounded-full shadow-lg"
           />
           
-          <div className="text-center flex-1 mx-8">
-            <h1 className="text-3xl font-bold mb-2">
+          <div className="text-center flex-1 mx-2 sm:mx-8">
+            <h1 className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2">
               Maa Bhagwati Charitable Trust
             </h1>
-            <h2 className="text-xl">
+            <h2 className="text-lg sm:text-xl">
               सेवा परमो धर्मः
             </h2>
           </div>
@@ -27,7 +27,7 @@ const Header = () => {
           <img 
             src={khatushyamLogo}
             alt="MBCT Right Logo" 
-            className="h-20 w-20 object-contain rounded-full shadow-lg"
+            className="h-16 w-16 sm:h-20 sm:w-20 object-contain rounded-full shadow-lg"
           />
         </div>
       </div>
@@ -46,38 +46,54 @@ const Header = () => {
       
       {/* Navigation Bar */}
       <nav className="bg-orange-500 text-white py-4">
-        <div className="max-w-7xl mx-auto px-6">
-          <ul className="flex justify-center gap-6">
-            <li>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <ul className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+
+            <li className="w-full sm:w-auto">
               <Link 
                 to="/" 
-                className="inline-flex items-center px-6 py-3 bg-orange-600 hover:bg-orange-700 
-                rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 
-                transform hover:-translate-y-0.5 focus:ring-2 focus:ring-orange-400"
+                className="inline-flex w-full sm:w-auto justify-center items-center px-6 py-3 
+                bg-orange-600 hover:bg-orange-700 rounded-lg shadow-lg hover:shadow-xl 
+                transition-all duration-300 transform hover:-translate-y-0.5 
+                focus:ring-2 focus:ring-orange-400"
               >
                 <span className="font-medium">Home</span>
               </Link>
             </li>
-            <li>
+            <li className="w-full sm:w-auto">
               <Link 
                 to="/donation" 
-                className="inline-flex items-center px-6 py-3 bg-orange-600 hover:bg-orange-700 
-                rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 
-                transform hover:-translate-y-0.5 focus:ring-2 focus:ring-orange-400"
+                className="inline-flex w-full sm:w-auto justify-center items-center px-6 py-3 
+                bg-orange-600 hover:bg-orange-700 rounded-lg shadow-lg hover:shadow-xl 
+                transition-all duration-300 transform hover:-translate-y-0.5 
+                focus:ring-2 focus:ring-orange-400"
               >
                 <span className="font-medium">Donation</span>
               </Link>
             </li>
-            <li>
+            <li className="w-full sm:w-auto">
               <Link 
                 to="/certificates" 
-                className="inline-flex items-center px-6 py-3 bg-orange-600 hover:bg-orange-700 
-                rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 
-                transform hover:-translate-y-0.5 focus:ring-2 focus:ring-orange-400"
+                className="inline-flex w-full sm:w-auto justify-center items-center px-6 py-3 
+                bg-orange-600 hover:bg-orange-700 rounded-lg shadow-lg hover:shadow-xl 
+                transition-all duration-300 transform hover:-translate-y-0.5 
+                focus:ring-2 focus:ring-orange-400"
               >
                 <span className="font-medium">Certificate</span>
               </Link>
             </li>
+            <li className="w-full sm:w-auto">
+              <Link 
+                to="/idcard" 
+                className="inline-flex w-full sm:w-auto justify-center items-center px-6 py-3 
+                bg-orange-600 hover:bg-orange-700 rounded-lg shadow-lg hover:shadow-xl 
+                transition-all duration-300 transform hover:-translate-y-0.5 
+                focus:ring-2 focus:ring-orange-400"
+              >
+                <span className="font-medium">Members</span>
+              </Link>
+            </li>
+
           </ul>
         </div>
       </nav>
