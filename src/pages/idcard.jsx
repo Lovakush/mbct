@@ -36,18 +36,47 @@ const keyPersons = [
     idNumber: "MBCT/AGR/KP/S/1001",
     verified: true,
     photo: '/assets/trustee/layaksingh.jpg',
-  }
+  },
+  {
+    name: "Vijaypal Thakur",
+    position: "Regional Head",
+    mobile: "+91 9368825785",
+    gender: "Male",
+    idNumber: "MBCT/AGR/KP/S/1002",
+    verified: true,
+    photo: '/assets/trustee/vijaypalthakur.jpg',
+  },
+  {
+    name: "Tapendra Singh",
+    position: "कार्यक्रम प्रबंधक",
+    mobile: "+91 9536655206",
+    gender: "Male",
+    idNumber: "MBCT/AGR/KP/S/1003",
+    verified: true,
+    photo: '/assets/trustee/tapendrasingh.jpg',
+  },
+  
+
 ];
 
 const trustees = [
   {
     name: "Ajay Pal",
     position: "स्वयंसेवक समन्वयक",
-    mobile: "+91 9876543211",
+    mobile: "+91 8445285063",
     gender: "Male",
     idNumber: "MBCT/AGR/TR/M/501",
     verified: true,
     photo: '/assets/trustee/ajaypal.jpg',
+  },
+  {
+    name: "Pradeep",
+    position: "सदस्य",
+    mobile: "+91 9870856590",
+    gender: "Male",
+    idNumber: "MBCT/AGR/TR/M/502",
+    verified: true,
+    photo: '/assets/trustee/pradeep.jpg',
   }
 ];
 
