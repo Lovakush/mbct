@@ -47,6 +47,15 @@ const keyPersons = [
     photo: '/assets/trustee/vijaypalthakur.jpg',
   },
   {
+    name: "Brajmohan Singh",
+    position: "Executive Director",
+    mobile: "+91 8171638618",
+    gender: "Male",
+    idNumber: "MBCT/AGR/KP/S/D/1001",
+    verified: true,
+    photo: '/assets/trustee/brajmohansingh.jpg',
+  },
+  {
     name: "Tapendra Singh",
     position: "कार्यक्रम प्रबंधक",
     mobile: "+91 9536655206",
