@@ -7,10 +7,24 @@ import Certificate from './pages/certificate';
 import IdCard from './pages/idcard';
 import PolicyPage from './pages/policy';
 import MemberPolicyPage from './pages/memberPolicy';
+import { ToastContainer } from 'react-toastify'; // Import ToastContainer
+import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
 
 function App() {
   return (
     <Router>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <Routes>
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />

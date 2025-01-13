@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import {createOrder, verifyPayment, saveDonationDetails, paymentDetailsByID } from '../api/payment';
+import { toast } from 'react-toastify'; 
+import { VITE_RAZORPAY_KEY_ID } from '../../constants/index';
 
 const DonationForm = () => {
   const [formData, setFormData] = useState({
@@ -72,12 +75,12 @@ const DonationForm = () => {
    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-   };
+  };
 
-   useEffect(() => {
+  useEffect(() => {
         const isValid = validateForm();
         setIsFormValid(isValid);
-    }, [formData]);
+  }, [formData]);
 
   const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -86,45 +89,121 @@ const DonationForm = () => {
           ...prev,
           [name]: value
         }));
-    };
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isFormValid) return;
-
+  
     try {
-      // Here you would make your API call to the backend
-      console.log('Form submitted:', formData);
-      // const response = await fetch('/api/donate', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
-      // const data = await response.json();
-      alert('Donation form submitted successfully!');
+      const requestData = {
+        amount: Number(formData.donationAmount),
+        name: formData.donorName,
+        email: formData.email,
+        mobile: formData.mobile
+      };
+  
+      const data = await createOrder(requestData);
+  
+      if (!data.success || !data.order) {
+        throw new Error('Invalid response structure from server');
+      }
+  
+      const options = {
+        key: VITE_RAZORPAY_KEY_ID,
+        amount: data.order.amount,
+        currency: 'INR',
+        name: "Maa Bhagwati Charitable Trust",
+        description: "Thanks for your donation",
+        order_id: data.order.id,
+        prefill: {
+          name : formData.donorName,
+          email: formData.email,
+          contact: formData.mobile,
+        },
+        handler: async function (razorpayResponse) {
+          try {
+            const verifyData = await verifyPayment({
+              razorpay_payment_id: razorpayResponse.razorpay_payment_id,
+              razorpay_signature: razorpayResponse.razorpay_signature,
+              order_id : data.order.id,
+            });
+            if (verifyData.success) {
+              const payment_details = await paymentDetailsByID(razorpayResponse.razorpay_payment_id);
+              if(payment_details.success){
+                await saveDonationDetails(payment_details.data, formData);
+                toast.success('🎉 Payment Successful! Thank you for your donation.', {
+                  position: 'top-center',
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: 'colored',
+                });
+                handleReset();
+              }
+            } else {
+              throw new Error(verifyData.message || 'Payment verification failed');
+            }
+          } catch (error) {
+            console.error('Verification error:', error);
+            toast.error('Payment verification failed. Please contact support.', {
+              position: 'top-center',
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: 'colored',
+            });
+          }
+        },
+        modal: {
+          ondismiss: function() {
+            console.log('Payment window closed');
+          }
+        },
+        theme: {
+          color: "#F37254"
+        }
+      };
+  
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
+  
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Error submitting form. Please try again.');
+      console.error('Payment error:', error);
+      let errorMessage = 'Payment initialization failed';
+      
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      
+      alert(errorMessage);
     }
   };
 
   const handleReset = () => {
-    setFormData({
-      donorType: 'Indian',
-      donorName: '',
-      purpose: '',
-      panNumber: '',
-      donationAmount: '',
-      addressLine1: '',
-      addressLine2: '',
-      country: 'India',
-      state: '',
-      district: '',
-      pincode: '',
-      email: '',
-      mobile: ''
-    });
-    setErrors({});
+      setFormData({
+        donorType: 'Indian',
+        donorName: '',
+        purpose: '',
+        panNumber: '',
+        donationAmount: '',
+        addressLine1: '',
+        addressLine2: '',
+        country: 'India',
+        state: '',
+        district: '',
+        pincode: '',
+        email: '',
+        mobile: ''
+      });
+      setErrors({});
   };
 
   return (
