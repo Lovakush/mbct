@@ -27,7 +27,6 @@ export const createOrder =  async(orderData) => {
 }
 
 export const verifyPayment = async (paymentData) => {
-    console.log(paymentData);
     try {
       const response = await fetch(`${VITE_API_BASE_URL}/payment/verify`, {
         method: 'POST',
@@ -82,7 +81,7 @@ export const paymentDetailsByID = async (payment_id) => {
     }
   
     try {
-      const response = await fetch(`${VITE_API_BASE_URL}/payment/verify?payment_id=${payment_id}`, {
+      const response = await fetch(`${VITE_API_BASE_URL}/payment/details/${payment_id}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',

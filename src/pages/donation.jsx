@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import {createOrder, verifyPayment, saveDonationDetails, paymentDetailsByID } from '../api/payment';
 import { toast } from 'react-toastify'; 
 import { VITE_RAZORPAY_KEY_ID } from '../../constants/index';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const DonationForm = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +26,7 @@ const DonationForm = () => {
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
   const [isFormTouched, setIsFormTouched] = useState(false);
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -143,6 +147,7 @@ const DonationForm = () => {
                   progress: undefined,
                   theme: 'colored',
                 });
+                navigate('/donation-certificate', { state: { payment_id: razorpayResponse.razorpay_payment_id } });
                 handleReset();
               }
             } else {
@@ -277,7 +282,7 @@ const DonationForm = () => {
                 }`}
               >
                 <option value="">Select Purpose of Donation</option>
-                <option value="education">Khatu Shyam Temple Project</option>
+                <option value="Khatu Shyam Temple Project">Khatu Shyam Temple Project</option>
               </select>
               {errors.purpose && (
                 <p className="text-red-500 text-sm mt-1">{errors.purpose}</p>
@@ -547,6 +552,7 @@ const DonationForm = () => {
         </form>
       </div>
     </div>
+    
   );
 };
 
