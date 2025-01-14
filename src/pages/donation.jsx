@@ -149,7 +149,7 @@ const DonationForm = () => {
                 });
                 setTimeout(() => {
                   navigate('/donation-certificate', { state: { payment_id: razorpayResponse.razorpay_payment_id } });
-                }, 500);
+                }, 2000);
                 handleReset();
               }
             } else {

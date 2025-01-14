@@ -44,7 +44,7 @@ const DonationCertificate = () => {
     doc.setFont("helvetica", "italic");
     doc.setFontSize(14);
     doc.setTextColor(0, 0, 0); // Black
-    doc.text("Bhadroli, Bhadrauli, Bah, Agra, Uttar Pradesh - 283113", 148.5, 40, { align: "center" });
+    doc.text("Bhadroli, Bhadrauli, Bah, Agra, Uttar Pradesh - 283113, PAN: AAJTM3961M", 148.5, 40, { align: "center" });
 
     doc.setFont("times", "bold");
     doc.setFontSize(18);
