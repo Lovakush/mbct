@@ -51,8 +51,8 @@ const DonationForm = () => {
       if (!formData.donorName.trim()) newErrors.donorName = 'Donor name is required';
       if (!formData.purpose) newErrors.purpose = 'Purpose is required';
    
-      if (!formData.donationAmount || Number(formData.donationAmount) < 10) {
-        newErrors.donationAmount = 'Minimum donation amount is ₹10';
+      if (!formData.donationAmount || Number(formData.donationAmount) < 1) {
+        newErrors.donationAmount = 'Minimum donation amount is ₹1';
       }
    
       if (!formData.addressLine1.trim()) newErrors.addressLine1 = 'Address is required';
@@ -147,7 +147,9 @@ const DonationForm = () => {
                   progress: undefined,
                   theme: 'colored',
                 });
-                navigate('/donation-certificate', { state: { payment_id: razorpayResponse.razorpay_payment_id } });
+                setTimeout(() => {
+                  navigate('/donation-certificate', { state: { payment_id: razorpayResponse.razorpay_payment_id } });
+                }, 500);
                 handleReset();
               }
             } else {
@@ -323,7 +325,7 @@ const DonationForm = () => {
                 value={formData.donationAmount}
                 onChange={handleInputChange}
                 placeholder="Enter Donation Amount"
-                min="10"
+                min="1"
                 className={`w-full px-3 py-2 border rounded bg-white text-gray-800 placeholder-gray-500 ${
                   errors.donationAmount ? 'border-red-500' : ''
                 }`}
@@ -331,7 +333,7 @@ const DonationForm = () => {
               {errors.donationAmount ? (
                 <p className="text-red-500 text-sm mt-1">{errors.donationAmount}</p>
               ) : (
-                <p className="text-sm text-gray-600 mt-1">(Minimum Contribution accepted is ₹10)</p>
+                <p className="text-sm text-gray-600 mt-1">(Minimum Contribution accepted is ₹1)</p>
               )}
             </div>
           </div>
