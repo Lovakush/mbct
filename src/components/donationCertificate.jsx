@@ -83,7 +83,6 @@ const DonationCertificate = () => {
     // Mobile number, email ID, and other details
     const factor = purposeLines.length > 1 ? 6 : 0;
     const detailsStartY = panNumberY + purposeLines.length * factor + 10;
-    console.log(detailsStartY);
     doc.text("Mobile Number:", 20, detailsStartY);
     doc.text(donationDetails.data.mobile || "N/A", 60, detailsStartY);
 

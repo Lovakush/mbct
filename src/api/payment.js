@@ -79,7 +79,6 @@ export const paymentDetailsByID = async (payment_id) => {
     if (!payment_id) {
       throw new Error('Payment ID is required');
     }
-  
     try {
       const response = await fetch(`${VITE_API_BASE_URL}/payment/details/${payment_id}`, {
         method: 'GET',
@@ -103,4 +102,35 @@ export const paymentDetailsByID = async (payment_id) => {
       throw new Error(`Error fetching payment details: ${error.message}`);
     }
 };
+
+
+export const paymentCallback = async (razorpayResponse) => {
+  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = razorpayResponse;
+
+  try {
+    const response = await fetch(`${VITE_API_BASE_URL}/payment/callback`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        razorpay_order_id,
+        razorpay_payment_id,
+        razorpay_signature,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      return { success: true };  // If backend responds successfully, proceed further
+    } else {
+      throw new Error(data.message || 'Payment callback failed');
+    }
+  } catch (error) {
+    console.error('Error in paymentCallback:', error);
+    return { success: false, message: error.message || 'Payment callback failed' };
+  }
+};
+
   

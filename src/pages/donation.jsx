@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {createOrder, verifyPayment, saveDonationDetails, paymentDetailsByID } from '../api/payment';
+import {createOrder, verifyPayment, saveDonationDetails, paymentDetailsByID, paymentCallback } from '../api/payment';
 import { toast } from 'react-toastify'; 
 import { VITE_RAZORPAY_KEY_ID } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
@@ -113,7 +113,7 @@ const DonationForm = () => {
       if (!data.success || !data.order) {
         throw new Error('Invalid response structure from server');
       }
-  
+
       const options = {
         key: VITE_RAZORPAY_KEY_ID,
         amount: data.order.amount,
@@ -126,34 +126,44 @@ const DonationForm = () => {
           email: formData.email,
           contact: formData.mobile,
         },
+        notes: {
+          address: formData.addressLine1,
+        },
         handler: async function (razorpayResponse) {
           try {
-            const verifyData = await verifyPayment({
-              razorpay_payment_id: razorpayResponse.razorpay_payment_id,
-              razorpay_signature: razorpayResponse.razorpay_signature,
-              order_id : data.order.id,
-            });
-            if (verifyData.success) {
-              const payment_details = await paymentDetailsByID(razorpayResponse.razorpay_payment_id);
-              if(payment_details.success){
-                await saveDonationDetails(payment_details.data, formData);
-                toast.success('🎉 Payment Successful! Thank you for your donation.', {
-                  position: 'top-center',
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: 'colored',
+            // Call paymentCallback to send the payment data to backend
+              const callbackData = await paymentCallback(razorpayResponse);
+  
+            // If callback is successful, proceed with further logic
+              if (callbackData.success) {
+                const verifyData = await verifyPayment({
+                  order_id: data.order.id,
                 });
-                setTimeout(() => {
-                  navigate('/donation-certificate', { state: { payment_id: razorpayResponse.razorpay_payment_id } });
-                }, 2000);
-                handleReset();
+  
+              if (verifyData.success) {
+                const payment_details = await paymentDetailsByID(razorpayResponse.razorpay_payment_id);
+                if (payment_details.success) {
+                  await saveDonationDetails(payment_details.data, formData);
+                  toast.success('🎉 Payment Successful! Thank you for your donation.', {
+                    position: 'top-center',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'colored',
+                  });
+                  setTimeout(() => {
+                    navigate('/donation-certificate', { state: { payment_id: razorpayResponse.razorpay_payment_id } });
+                  }, 2000);
+                  handleReset();
+                }
+              } else {
+                throw new Error(verifyData.message || 'Payment verification failed');
               }
             } else {
-              throw new Error(verifyData.message || 'Payment verification failed');
+              throw new Error('Callback failed');
             }
           } catch (error) {
             console.error('Verification error:', error);
