@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {createOrder, verifyPayment, saveDonationDetails, paymentDetailsByID, paymentCallback } from '../api/payment';
+import {createOrder, verifyPayment, saveDonationDetails, paymentDetailsByID, paymentCallback, checkHealth } from '../api/payment';
 import { toast } from 'react-toastify'; 
 import { VITE_RAZORPAY_KEY_ID } from '../../constants/index';
 import { useNavigate } from 'react-router-dom';
@@ -82,9 +82,13 @@ const DonationForm = () => {
   };
 
   useEffect(() => {
-        const isValid = validateForm();
-        setIsFormValid(isValid);
+    const isValid = validateForm();
+    setIsFormValid(isValid);
   }, [formData]);
+
+  useEffect(() => {
+    checkHealth();
+  }, []);
 
   const handleInputChange = (e) => {
         const { name, value } = e.target;
