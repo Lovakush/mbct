@@ -6,8 +6,8 @@ import { useLocation } from 'react-router-dom';
 
 const DonationCertificate = () => {
   const location = useLocation();
-  // const { payment_id } = location.state || {};
-  const payment_id = "pay_PmKfGA0S5ODHow";
+  const { payment_id } = location.state || {};
+  // const payment_id = "pay_PmKfGA0S5ODHow";
   const [donationDetails, setDonationDetails] = useState(null);
 
   useEffect(() => {
