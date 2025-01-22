@@ -98,8 +98,7 @@ const DonationForm = () => {
           [name]: value
         }));
   };
-
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isFormValid) return;
@@ -160,7 +159,7 @@ const DonationForm = () => {
                   });
                   setTimeout(() => {
                     navigate('/donation-certificate', { state: { payment_id: razorpayResponse.razorpay_payment_id } });
-                  }, 2000);
+                  }, 100);
                   handleReset();
                 }
               } else {
