@@ -6,7 +6,8 @@ import { useLocation } from 'react-router-dom';
 
 const DonationCertificate = () => {
   const location = useLocation();
-  const { payment_id } = location.state || {};
+  // const { payment_id } = location.state || {};
+  const payment_id = "pay_PmKfGA0S5ODHow";
   const [donationDetails, setDonationDetails] = useState(null);
 
   useEffect(() => {
@@ -133,17 +134,68 @@ const DonationCertificate = () => {
   };
 
   if (!donationDetails) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-amber-50 text-orange-600 text-lg">
+        Loading...
+      </div>
+    );
   }
-
+  
   return (
-    <div className="flex flex-col items-center p-4 bg-gray-100 min-h-screen">
-      <button
-        onClick={generatePDF}
-        className="px-6 py-3 bg-blue-600 text-white font-semibold rounded shadow-md hover:bg-blue-700 transition"
-      >
-        Download Certificate
-      </button>
+    <div className="min-h-screen bg-amber-50">
+      <div className="max-w-3xl mx-auto p-4 sm:p-6">
+        <h2 className="text-orange-500 text-lg border-b border-orange-300 pb-2 mb-6 font-semibold">
+          Donation Certificate
+        </h2>
+  
+        <div className="bg-white rounded-lg shadow p-6">
+          <p className="text-gray-700 text-center mb-4">
+            Thank you for supporting Maa Bhagwati Charitable Trust!
+          </p>
+  
+          <div className="bg-gray-50 p-4 rounded-lg shadow-inner">
+            <h3 className="text-orange-600 text-md font-semibold mb-4">
+              Donation Details
+            </h3>
+            <p>
+              <strong>Receipt No.:</strong> {donationDetails.data.receiptNumber || "N/A"}
+            </p>
+            <p>
+              <strong>Donor Name:</strong> {donationDetails.data.name || "N/A"}
+            </p>
+            <p>
+              <strong>Address:</strong> {donationDetails.data.full_address || "N/A"}
+            </p>
+            <p>
+              <strong>PAN Number:</strong> {donationDetails.data.pan_number || "N/A"}
+            </p>
+            <p>
+              <strong>Purpose:</strong> {donationDetails.data.purpose || "N/A"}
+            </p>
+            <p>
+              <strong>Mobile:</strong> {donationDetails.data.mobile || "N/A"}
+            </p>
+            <p>
+              <strong>Email:</strong> {donationDetails.data.email || "N/A"}
+            </p>
+            <p>
+              <strong>Donation Amount:</strong> ₹{donationDetails.data.amount || "N/A"}
+            </p>
+            <p>
+              <strong>Amount in Words:</strong> {amountToWords(donationDetails.data.amount || 0)}
+            </p>
+          </div>
+  
+          <div className="text-center mt-6">
+            <button
+              onClick={generatePDF}
+              className="px-6 py-2 bg-orange-500 text-white font-medium rounded hover:bg-orange-600 transition"
+            >
+              Download Certificate
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

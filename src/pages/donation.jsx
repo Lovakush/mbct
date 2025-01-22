@@ -298,6 +298,10 @@ const DonationForm = () => {
                 }`}
               >
                 <option value="">Select Purpose of Donation</option>
+                <option value="Bhog Prasad, Shringar and Pooja">Bhog Prasad, Shringar and Pooja</option>
+                <option value="Mandir Renovation/Repair">Mandir Renovation/Repair</option>
+                <option value="General Donation">General Donation</option>
+                <option value="Gau Sewa">Gau Sewa</option>
                 <option value="Khatu Shyam Temple Project">Khatu Shyam Temple Project</option>
               </select>
               {errors.purpose && (
