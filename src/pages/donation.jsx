@@ -87,7 +87,23 @@ const DonationForm = () => {
   }, [formData]);
 
   useEffect(() => {
-    checkHealth();
+    const Health = async () => {
+      const response = await checkHealth();
+      if(response.message == "healthy"){
+        toast.success('🔥 Server is Healthy ', {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        });
+
+      }
+    }
+    Health();
   }, []);
 
   const handleInputChange = (e) => {

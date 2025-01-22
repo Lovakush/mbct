@@ -137,8 +137,13 @@ export const paymentCallback = async (razorpayResponse) => {
 // check health of the API
 export const checkHealth = async () => {
   try {
-    const response = await axios.get('https://mbct-api-services-latest.onrender.com/healthz');
-    return response.data; // Return the response data
+    const response = await fetch('https://mbct-api-services-latest.onrender.com/healthz', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      },
+    });
+    return response.json();
   } catch (error) {
     console.error('Error during health check:', error);
     throw error; // Re-throw the error for handling in the caller
