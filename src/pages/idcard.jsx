@@ -28,15 +28,15 @@ const Barcode = ({ value }) => {
 };
 
 const keyPersons = [
-  {
-    name: "Layak Singh",
-    position: "सचिव",
-    mobile: "+91 8827113948",
-    gender: "Male",
-    idNumber: "MBCT/AGR/KP/S/1001",
-    verified: true,
-    photo: '/assets/trustee/layaksingh.jpg',
-  },
+  // {
+  //   name: "Layak Singh",
+  //   position: "सचिव",
+  //   mobile: "+91 8827113948",
+  //   gender: "Male",
+  //   idNumber: "MBCT/AGR/KP/S/1001",
+  //   verified: true,
+  //   photo: '/assets/trustee/layaksingh.jpg',
+  // },
   {
     name: "Vijaypal Thakur",
     position: "Regional Head",
