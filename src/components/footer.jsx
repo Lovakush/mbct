@@ -24,7 +24,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="text-center py-4 border-t border-orange-400">
-          © 2024 MBCT. All Rights Reserved.
+          © 2025 MBCT. All Rights Reserved.
         </div>
       </div>
     </footer>

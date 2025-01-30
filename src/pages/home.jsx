@@ -21,6 +21,11 @@ const HomePage = () => {
       position: "Treasurer",
       image: '/assets/Lovakush.png'
     },
+    {
+      name: "Neeraj Kumar Shakya",
+      position: "Vice President",
+      image: '/assets/neerajkumar.jpg'
+    },
   ];
 
   return (
@@ -114,9 +119,14 @@ const HomePage = () => {
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover object-center"
-                    style={{ objectFit: 'cover',objectPosition: 'center 5%', }}
+                    style={
+                      member.name === "Neeraj Kumar Shakya"
+                        ? { objectFit: 'cover', objectPosition: 'center 30%' }
+                        : { objectFit: 'cover', objectPosition: 'center 5%' }
+                    }
                   />
                 </div>
+
                 <h3 className="text-xl font-semibold text-gray-800 mt-4">
                   {member.name}
                 </h3>
