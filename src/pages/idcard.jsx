@@ -54,18 +54,16 @@ const keyPersons = [
     idNumber: "MBCT/AGR/KP/S/D/1001",
     verified: true,
     photo: '/assets/trustee/brajmohansingh.jpg',
-  },
-  {
-    name: "Tapendra Singh",
-    position: "कार्यक्रम प्रबंधक",
-    mobile: "+91 9536655206",
-    gender: "Male",
-    idNumber: "MBCT/AGR/KP/S/1003",
-    verified: true,
-    photo: '/assets/trustee/tapendrasingh.jpg',
-  },
-  
-
+  }
+  // {
+  //   name: "Tapendra Singh",
+  //   position: "कार्यक्रम प्रबंधक",
+  //   mobile: "+91 9536655206",
+  //   gender: "Male",
+  //   idNumber: "MBCT/AGR/KP/S/1003",
+  //   verified: true,
+  //   photo: '/assets/trustee/tapendrasingh.jpg',
+  // },
 ];
 
 const trustees = [
@@ -77,16 +75,16 @@ const trustees = [
     idNumber: "MBCT/AGR/TR/M/501",
     verified: true,
     photo: '/assets/trustee/ajaypal.jpg',
-  },
-  {
-    name: "Pradeep",
-    position: "सदस्य",
-    mobile: "+91 9870856590",
-    gender: "Male",
-    idNumber: "MBCT/AGR/TR/M/502",
-    verified: true,
-    photo: '/assets/trustee/pradeep.jpg',
   }
+  // {
+  //   name: "Pradeep",
+  //   position: "सदस्य",
+  //   mobile: "+91 9870856590",
+  //   gender: "Male",
+  //   idNumber: "MBCT/AGR/TR/M/502",
+  //   verified: true,
+  //   photo: '/assets/trustee/pradeep.jpg',
+  // }
 ];
 
 const IDCard = ({ member, type }) => {
