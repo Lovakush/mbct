@@ -26,6 +26,16 @@ const HomePage = () => {
       position: "Vice President",
       image: '/assets/neerajkumar.jpg'
     },
+    {
+      name: "Prashant",
+      position: "Secretary",
+      image: '/assets/prashant.jpg'
+    },
+    {
+      name: "Yash",
+      position: "Joint Secretary",
+      image: '/assets/yash.jpg'
+    },
   ];
 
   return (
@@ -34,7 +44,7 @@ const HomePage = () => {
       <div className="relative w-full min-h-screen">
         <div className="absolute inset-0">
           <img
-            src= '/assets/Bhadroli_devi.jpg'
+            src='/assets/Bhadroli_devi.jpg'
             alt="Khatu Shyam Temple"
             className="w-full h-full object-cover object-center"
             style={{
@@ -72,10 +82,9 @@ const HomePage = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="rounded-lg overflow-hidden shadow-lg h-full">
               <img
-                src= '/assets/Khatushyam.jpeg'
+                src='/assets/Khatushyam.jpeg'
                 alt="Temple Project"
                 className="w-full h-full object-contain bg-white"
-                // style={{ aspectRatio: '4/4' }}
               />
             </div>
             
@@ -107,14 +116,15 @@ const HomePage = () => {
             Our Trust Members
           </h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {trustMembers.map((member, index) => (
               <div 
                 key={index} 
                 className="flex flex-col items-center bg-amber-100 rounded-lg shadow-md 
-                         hover:shadow-lg transition-shadow duration-300 p-6"
+                         hover:shadow-lg transition-shadow duration-300 p-4"
               >
-                <div className="w-48 h-48 rounded-full overflow-hidden mb-4">
+                {/* Responsive image size */}
+                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-4">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -127,10 +137,10 @@ const HomePage = () => {
                   />
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-800 mt-4">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 mt-4 text-center">
                   {member.name}
                 </h3>
-                <p className="text-gray-600 mt-2">
+                <p className="text-sm text-gray-600 mt-2 text-center">
                   {member.position}
                 </p>
               </div>
