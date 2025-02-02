@@ -27,15 +27,15 @@ const HomePage = () => {
       image: '/assets/neerajkumar.jpg'
     },
     {
-      name: "Prashant",
-      position: "Secretary",
-      image: '/assets/prashant.jpg'
-    },
-    {
       name: "Yash",
-      position: "Joint Secretary",
+      position: "Secretary",
       image: '/assets/yash.jpg'
     },
+    {
+      name: "Prashant",
+      position: "Joint Secretary",
+      image: '/assets/prashant.jpg'
+    }
   ];
 
   return (
