@@ -7,7 +7,7 @@ const HomePage = () => {
 
   const trustMembers = [
     {
-      name: "Dijvijay Singh Tomar",
+      name: "Digvijay Singh Tomar",
       position: "Chairman",
       image: '/assets/Dijvijay.jpg'
     },
@@ -40,7 +40,12 @@ const HomePage = () => {
       name: "Prashant",
       position: "Joint Secretary",
       image: '/assets/prashant.jpg'
-    }
+    },
+    {
+      name: "Ravi Kumar",
+      position: "Chief Administrative Officer",
+      image: '/assets/ravi.jpg'
+    },
   ];
 
   return (
