@@ -6,7 +6,8 @@ const RootLayout = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-grow">
+      {/* Add padding-top to prevent content from being hidden under fixed header */}
+      <main className="flex-grow pt-28 md:pt-32">
         <Outlet />
       </main>
       <Footer />

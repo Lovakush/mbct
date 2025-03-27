@@ -6,10 +6,10 @@ import Contact from './pages/contact';
 import Certificate from './pages/certificate';
 import IdCard from './pages/idcard';
 import PolicyPage from './pages/policy';
-import DonationCertificate from './components/donationCertificate';
 import MemberPolicyPage from './pages/memberPolicy';
-import { ToastContainer } from 'react-toastify'; // Import ToastContainer
-import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
+import DonationCertificate from './components/donationCertificate';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
