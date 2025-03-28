@@ -98,6 +98,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {[
                 { name: 'Trust Policy', path: '/policy' },
+                { name: 'Trust Policy in simple terms', path: '/policy-simple' },
                 { name: 'Member/Trustee Policy', path: '/member-policy' },
                 { name: 'Privacy Policy', path: '/privacy' },
                 { name: 'Terms & Conditions', path: '/terms' }

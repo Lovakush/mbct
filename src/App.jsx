@@ -6,6 +6,7 @@ import Contact from './pages/contact';
 import Certificate from './pages/certificate';
 import IdCard from './pages/idcard';
 import PolicyPage from './pages/policy';
+import SimplePolicyPage from './pages/simplePolicy';
 import MemberPolicyPage from './pages/memberPolicy';
 import DonationCertificate from './components/donationCertificate';
 import { ToastContainer } from 'react-toastify';
@@ -34,6 +35,7 @@ function App() {
           <Route path="/certificates" element={<Certificate />} />
           <Route path="/idcard" element={<IdCard />} />
           <Route path="/policy" element={<PolicyPage />} />
+          <Route path="/policy-simple" element={<SimplePolicyPage />} />
           <Route path="/member-policy" element={<MemberPolicyPage />} />
           <Route path="/donation-certificate" element={<DonationCertificate payment_id={"pay_Pj6AYSBTCthC6f"}/>} />
         </Route>
