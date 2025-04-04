@@ -27,14 +27,14 @@ const HomePage = () => {
 
   // Trust members with enhanced styling
   const trustMembers = [
-    {
-      name: "Digvijay Singh Tomar",
-      position: "Chairman",
-      image: '/assets/Dijvijay.jpg'
-    },
+    // {
+    //   name: "Digvijay Singh Tomar",
+    //   position: "Chairman",
+    //   image: '/assets/Dijvijay.jpg'
+    // },
     {
       name: "Narendra Kumar",
-      position: "Tenured chairman",
+      position: "Chairman",
       image: '/assets/narendra.jpg'
     },
     {

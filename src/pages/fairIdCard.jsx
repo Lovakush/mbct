@@ -331,7 +331,7 @@ const FairIDCard = () => {
                     
                     <div className="p-4 relative z-10">
                       <div className="flex items-center">
-                        <div className="w-14 h-18 bg-white rounded-full flex items-center justify-center mr-3 p-0.5 border-2 border-yellow-300 shadow-lg">
+                        <div className="w-14 h- bg-white rounded-full flex items-center justify-center mr-3 p-0.5 border-2 border-yellow-300 shadow-lg">
                           <img 
                             src="/assets/Bhadroli_devi.jpg" 
                             alt="Maa Bhagwati" 
