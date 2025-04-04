@@ -8,6 +8,7 @@ import IdCard from './pages/idcard';
 import PolicyPage from './pages/policy';
 import SimplePolicyPage from './pages/simplePolicy';
 import MemberPolicyPage from './pages/memberPolicy';
+import FairIdCard from './pages/fairIdCard';
 import DonationCertificate from './components/donationCertificate';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -34,6 +35,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/certificates" element={<Certificate />} />
           <Route path="/idcard" element={<IdCard />} />
+          <Route path="/fair-id-card" element={<FairIdCard />} />
           <Route path="/policy" element={<PolicyPage />} />
           <Route path="/policy-simple" element={<SimplePolicyPage />} />
           <Route path="/member-policy" element={<MemberPolicyPage />} />
