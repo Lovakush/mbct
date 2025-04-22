@@ -14,11 +14,11 @@ const SimpleTrustPolicy = () => {
 
   // Current leadership team
   const leadershipTeam = [
-    // {
-    //   name: "श्री दिग्विजय सिंह तोमर",
-    //   position: "Chairman",
-    //   role: "अध्यक्ष"
-    // },
+    {
+      name: "श्री दिग्विजय सिंह तोमर",
+      position: "Chairman",
+      role: "अध्यक्ष"
+    },
     {
       name: "श्री नरेंद्र कुमार",
       position: "Tenured Chairman",
@@ -607,10 +607,10 @@ const SimpleTrustPolicy = () => {
                           ये नियम 29 अप्रैल, 2024 से प्रभावी हैं और सभी सदस्यों पर बाध्यकारी हैं।
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 max-w-3xl mx-auto">
-                          {/* <div className="text-center">
+                          <div className="text-center">
                             <p className="font-medium text-amber-800">श्री दिग्विजय सिंह तोमर</p>
                             <p className="text-gray-700">अध्यक्ष</p>
-                          </div> */}
+                          </div>
                           <div className="text-center">
                             <p className="font-medium text-amber-800">श्री नरेंद्र कुमार</p>
                             <p className="text-gray-700">संस्थापक अध्यक्ष</p>

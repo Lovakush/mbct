@@ -75,12 +75,12 @@ const ContactPage = () => {
 
   // Leadership team data
   const leadershipTeam = [
-    // {
-    //   name: "Digvijay Singh Tomar",
-    //   position: "Chairman",
-    //   phone: "9837542585",
-    //   image: "/assets/Dijvijay.jpg"
-    // },
+    {
+      name: "Digvijay Singh Tomar",
+      position: "Chairman",
+      phone: "9837542585",
+      image: "/assets/Dijvijay.jpg"
+    },
     {
       name: "Narendra Kumar",
       position: "Tenured Chairman",

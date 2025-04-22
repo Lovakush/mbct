@@ -31,13 +31,13 @@ const ModernMemberPolicy = () => {
 
   // Leadership team data structure
   const leadershipTeam = [
-    // {
-    //   name: "श्री दिग्विजय सिंह तोमर",
-    //   position: "Chairman",
-    //   role: "अध्यक्ष",
-    //   authorities: ["ट्रस्ट का प्रतिनिधित्व", "महत्वपूर्ण दस्तावेजों पर हस्ताक्षर", "नीतिगत निर्णय"],
-    //   responsibilities: ["नेतृत्व प्रदान करना", "बाहरी संस्थाओं से संबंध", "धार्मिक उद्देश्यों की पूर्ति"]
-    // },
+    {
+      name: "श्री दिग्विजय सिंह तोमर",
+      position: "Chairman",
+      role: "अध्यक्ष",
+      authorities: ["ट्रस्ट का प्रतिनिधित्व", "महत्वपूर्ण दस्तावेजों पर हस्ताक्षर", "नीतिगत निर्णय"],
+      responsibilities: ["नेतृत्व प्रदान करना", "बाहरी संस्थाओं से संबंध", "धार्मिक उद्देश्यों की पूर्ति"]
+    },
     {
       name: "श्री नरेंद्र कुमार",
       position: "Tenured Chairman",
@@ -1753,11 +1753,11 @@ const ModernMemberPolicy = () => {
                         </p>
                         
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-6">
-                          {/* <div className="text-center">
+                          <div className="text-center">
                             <div className="h-px w-32 bg-indigo-300 mx-auto mb-2"></div>
                             <p className="font-medium text-indigo-800">श्री दिग्विजय सिंह तोमर</p>
                             <p className="text-gray-600">अध्यक्ष</p>
-                          </div> */}
+                          </div>
                           
                           <div className="text-center">
                             <div className="h-px w-32 bg-indigo-300 mx-auto mb-2"></div>

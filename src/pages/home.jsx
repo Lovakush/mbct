@@ -34,7 +34,7 @@ const HomePage = () => {
     },
     {
       name: "Narendra Kumar",
-      position: "Tenered Chairman",
+      position: "Tenured Chairman",
       image: '/assets/narendra.jpg'
     },
     {
